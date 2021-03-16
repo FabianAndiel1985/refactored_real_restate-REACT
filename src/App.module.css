@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+h1 {
+	font-size: max(2vw, 80px);
+	font-family: 'Montserrat', sans-serif;
+}
+
+div {
+  text-align: center;
+}
+
+img {
+	display: block;
+	width:60%;
+	margin:0 auto 0 auto;
+	border-radius:70%;
+}
+
+.adminLogin {
+	font-size: max(1.5vw, 20px);
+	font-family: 'Lato', sans-serif;
+	cursor: pointer;
+	text-decoration: underline !important;
+	color:black;
+}
+
+
+
+input {
+	box-shadow: none !important;
+}
+
+
+
+

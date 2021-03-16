@@ -1,0 +1,17 @@
+CREATE TABLE estates (
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30) NOT NULL,
+price FLOAT(10,2) NOT NULL
+)
+
+
+INSERT INTO estates (id, name, prices)
+VALUES (null, 'estate1', 7.33),
+(null, 'estate2', 3.99),
+(null, 'estate3', 7.99),
+(null, 'estate4', 8.99),
+(null, 'estate5', 8.76),
+(null, 'estate6', 9.76),
+(null, 'estate7', 7.76),
+(null, 'estate8', 1.20),
+(null, 'estate9', 10.40);

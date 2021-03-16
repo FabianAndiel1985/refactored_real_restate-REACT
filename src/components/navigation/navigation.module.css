@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+
+.navLink, .logout{
+	font-size: max(2vw, 20px);
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+.logout {
+	position:absolute;
+	right: 4vw;
+}
+
+.navBrand {
+	width:40%;
+}
+

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.heading,.sub {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.heading{
+	font-size: max(7vw, 80px);
+}
+
+.sub{
+	font-size: max(2vw, 40px);
+}

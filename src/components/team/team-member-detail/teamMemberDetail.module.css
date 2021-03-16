@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+.card {
+	width: 95%;
+	min-height:100%;
+	border-radius:35px !important;
+}
+
+
+.carfHeading,.cardText, .buttonText {
+	font-size: 1.4rem !important;
+}
+
+.cardHeading {
+	font-family: 'Lato', sans-serif;
+}
+
+.cardText,.button-text {
+	font-family: 'Raleway', sans-serif;
+
+}
