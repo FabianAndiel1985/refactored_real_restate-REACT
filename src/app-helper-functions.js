@@ -35,8 +35,8 @@ export function getGreeting() {
   }
 
   export function handleChange(element) {
-    const {name,value} = element.target;
-    this.setState({[name]:value});
+    const {value} = element.target;
+    return value;
 }
 
 export function getTime() {
@@ -60,24 +60,9 @@ export function changeShowProperty(lgShow,setLgShow) {
   }
 
   return false;
-  
+
 }
 
-
-// export function setLgShow() {
-//     if(this.state.lgShow == false) 
-//     {
-//       this.setState({
-//         lgShow:true
-//       })
-//     }
-
-//     else {
-//       this.setState({
-//         lgShow:false
-//       })
-//     }
-//   }
 
 export function  onFocus(element) {
     element.target.style.border = "3px solid green";
