@@ -4,28 +4,13 @@ import styles from './App.module.css';
 import welcomePic from './assets/images/welcomePic.jpg';
 import {Image,Modal,InputGroup,FormControl,Button,Container} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
-import {getTime, 
-        getDaytimeString, 
-        getFontColour,
-        changeShowProperty,
-        getGreeting,
-        onFocus,
-        onBlur,
-        handleChange,
-        authListener,
-        login,
-        test
-      } from './app-helper-functions';
 
 
 
-// TODOS: 
-// authListener
-// MODAL EIGENE KOMPONENTE
 
-const ModalF = ({lgShow, setLgShow, changeShowProperty})=> {
+const ModalF = ({lgShow, setLgShow, changeShowProperty,setUser,setPassword,onFocus,onBlur,handleChange})=> {
 
-  const [user, setUser] = useState('');
+ 
 
   useEffect(()=> {
     
@@ -45,7 +30,7 @@ return(
           <Modal.Title id="example-modal-sizes-title-lg">
            Login Data
           </Modal.Title>
-        </Modal.Header> {/*
+        </Modal.Header>
         <Modal.Body>
 
           <label htmlFor="email"> Username</label>
@@ -76,10 +61,10 @@ return(
               onBlur= {(e)=>onBlur(e)}
             />
           </InputGroup>
-
-          <Button onClick={(e)=>login(e,user,password)} variant="success">Login</Button>
+{/* 
+          <Button onClick={(e)=>login(e,user,password)} variant="success">Login</Button> */}
         </Modal.Body>
-        {user ? <Redirect to="/products"/> : null }  */}
+        {/* {user ? <Redirect to="/products"/> : null }  */} */}
       </Modal>
       
 );

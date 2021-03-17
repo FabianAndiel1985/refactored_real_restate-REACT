@@ -60,7 +60,11 @@ return(
          lgShow = {lgShow}
          setLgShow = {setLgShow}
          changeShowProperty = {changeShowProperty}
-         
+         setUser = {setUser}
+         setPassword = {setPassword}
+         onFocus = {onFocus}
+         onBlur = {onBlur}
+         handleChange = {handleChange}
          />
 
       {/* <Modal
