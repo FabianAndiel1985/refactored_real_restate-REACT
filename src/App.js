@@ -17,6 +17,10 @@ import {getTime,
       } from './app-helper-functions';
 
 
+// TODOS: 
+// authListener
+// MODAL EIGENE KOMPONENTE
+
 const App = ()=> {
 
   const [daytime, setDaytime] = useState('morning');
@@ -26,13 +30,18 @@ const App = ()=> {
   const [password, setPassword] = useState('');
 
   useEffect(()=> {
-    let daytime = getGreeting();
-    setDaytime(daytime);
+    setDaytime(getGreeting());
+  })
+
+  useEffect(()=> {
+  //  authListener(user);
+  console.log(localStorage.getItem('user'));
+    
   })
 
 
 return(
-  <div>
+  <Container>
   <h1 style={{'color': getFontColour(daytime)}}  className="text-center"> Good {daytime} </h1>
   <h1>Welcome to Fabian Andiel Real</h1>      
   <img className="mt-5" src={require("./assets/images/welcomePic.jpg")}/>
@@ -43,8 +52,6 @@ return(
              Login as an Administrator
             </a>
          </p>
-
-
 
       <Modal
         size="lg"
@@ -87,87 +94,19 @@ return(
               onBlur= {(e)=>onBlur(e)}
             />
           </InputGroup>
-{/* 
-          <Button onClick={(e)=>this.login(e)} variant="success">Login</Button> */}
 
+          <Button onClick={(e)=>login(e,user,password)} variant="success">Login</Button>
         </Modal.Body>
       </Modal>
-      {/* {this.state.user ? <Redirect to="/products"/> : null }  */}
+      {user ? <Redirect to="/products"/> : null } 
 
-  </div>
+  </Container>
+
+
 
 );
 
-
-
-
 }
 
-
-
-// class App extends Component {
-  
-//   componentDidMount() {
-//         this.getGreeting();
-//         this.authListener();
-//   }
-
-
-
-//   render() {
-   
-//     return ( 
-//      
-//        <Modal
-//         size="lg"
-//         show={this.state.lgShow}
-//         onHide={() => this.setLgShow()}
-//         aria-labelledby="example-modal-sizes-title-lg"
-//       >
-//         <Modal.Header closeButton>
-//           <Modal.Title id="example-modal-sizes-title-lg">
-//            Login Data
-//           </Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>
-
-//           <label htmlFor="email"> Username</label>
-//           <InputGroup className="mb-3">
-//             <FormControl
-//               aria-label="Default"
-//               aria-describedby="inputGroup-sizing-default"
-//               type="email"
-//               id="email"
-//               name="email"
-//               onChange= {(e)=> this.handleChange(e)}
-//               onFocus = {(e)=>this.onFocus(e)}
-//               onBlur= {(e)=>this.onBlur(e) }
-//             />
-//           </InputGroup>
-
-
-//           <label htmlFor="password"> Password</label>
-//           <InputGroup className="mb-3">
-//             <FormControl
-//               aria-label="Default"
-//               aria-describedby="inputGroup-sizing-default"
-//               type="password"
-//               id="password"
-//               name="password"
-//               onChange= {(e)=> this.handleChange(e)}
-//               onFocus = {(e)=>this.onFocus(e)}
-//               onBlur= {(e)=>this.onBlur(e)}
-//             />
-//           </InputGroup>
-
-//           <Button onClick={(e)=>this.login(e)} variant="success">Login</Button>
-
-//         </Modal.Body>
-//       </Modal>
-//       {this.state.user ? <Redirect to="/products"/> : null } 
-//       </Container>
-//     );
-//   }
-// }
 
 export default App;

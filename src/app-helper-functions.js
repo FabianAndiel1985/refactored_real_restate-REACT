@@ -1,9 +1,9 @@
  import fire from './config/fire';
 
-  export function login(e) {
+  export function login(e,user,password) {
         e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {console.log(u);localStorage.setItem("user", u)}).catch((error) => {
-            console.log(error);
+        fire.auth().signInWithEmailAndPassword(user, password).then((u) => {console.log(u);localStorage.setItem("user", u)}).catch((error) => {
+            console.log("didnt work");
         });
     }
 
