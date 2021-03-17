@@ -71,3 +71,7 @@ export function  onFocus(element) {
 export function onBlur(element) {
     element.target.style.border = "";
   }
+
+  export const test = ()=>{
+    console.log("test");
+  }

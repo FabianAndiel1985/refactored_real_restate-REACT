@@ -17,63 +17,35 @@ import {getTime,
         test
       } from './app-helper-functions';
 
-      import IndButton from './IndButton.jsx';
-      import ModalF from './ModalF.jsx';
+
 
 // TODOS: 
 // authListener
 // MODAL EIGENE KOMPONENTE
 
-const App = ()=> {
+const ModalF = ({lgShow, setLgShow, changeShowProperty})=> {
 
-  const [daytime, setDaytime] = useState('morning');
-  const [lgShow, setLgShow] = useState(false);
   const [user, setUser] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   useEffect(()=> {
-    setDaytime(getGreeting());
-  })
-
-  useEffect(()=> {
-  //  authListener(user);
-  console.log(localStorage.getItem('user'));
     
   })
 
 
 return(
-  <Container>
-  <h1 style={{'color': getFontColour(daytime)}}  className="text-center"> Good {daytime} </h1>
-  <h1>Welcome to Fabian Andiel Real</h1>      
-  <img className="mt-5" src={require("./assets/images/welcomePic.jpg")}/>
 
-
-           <p className="mt-3">
-           <a onClick={() => {setLgShow(changeShowProperty(lgShow))}} className={styles.adminLogin}>
-             Login as an Administrator
-            </a>
-         </p>
-
-         <ModalF
-         lgShow = {lgShow}
-         setLgShow = {setLgShow}
-         changeShowProperty = {changeShowProperty}
-         
-         />
-
-      {/* <Modal
+  // <Modal>
+      <Modal
         size="lg"
         show={lgShow}
         onHide={() => {setLgShow(changeShowProperty(lgShow))}}
         aria-labelledby="example-modal-sizes-title-lg"
-      >
+      > 
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
            Login Data
           </Modal.Title>
-        </Modal.Header>
+        </Modal.Header> {/*
         <Modal.Body>
 
           <label htmlFor="email"> Username</label>
@@ -107,19 +79,12 @@ return(
 
           <Button onClick={(e)=>login(e,user,password)} variant="success">Login</Button>
         </Modal.Body>
+        {user ? <Redirect to="/products"/> : null }  */}
       </Modal>
-      {user ? <Redirect to="/products"/> : null }  */}
-
-      <IndButton clicker={test}/>
-
-  </Container>
-
-
-
-
+      
 );
 
 }
 
 
-export default App;
+export default ModalF;
