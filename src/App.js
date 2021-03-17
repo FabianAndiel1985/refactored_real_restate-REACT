@@ -29,8 +29,8 @@ const App = ()=> {
   const [daytime, setDaytime] = useState('morning');
   const [lgShow, setLgShow] = useState(false);
   const [user, setUser] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[isLoggedIn,setIsLoggedIn] = useState(false);
 
   useEffect(()=> {
     setDaytime(getGreeting());
@@ -65,6 +65,11 @@ return(
          onFocus = {onFocus}
          onBlur = {onBlur}
          handleChange = {handleChange}
+         user= {user}
+         password= {password}
+         login = {login}
+         isLoggedIn = {isLoggedIn}
+         setIsLoggedIn = {setIsLoggedIn}
          />
 
       {/* <Modal

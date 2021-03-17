@@ -53,7 +53,7 @@ export function getFontColour(daytime) {
 }
 
 
-export function changeShowProperty(lgShow,setLgShow) {
+export function changeShowProperty(lgShow) {
   if(!lgShow) 
   {
     return true;

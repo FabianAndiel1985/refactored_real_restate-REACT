@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
-
-import styles from './App.module.css';
-import welcomePic from './assets/images/welcomePic.jpg';
-import {Image,Modal,InputGroup,FormControl,Button,Container} from 'react-bootstrap';
+import {Modal,InputGroup,FormControl,Button} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 
 
-
-
-const ModalF = ({lgShow, setLgShow, changeShowProperty,setUser,setPassword,onFocus,onBlur,handleChange})=> {
-
- 
+const ModalF = ({lgShow,
+                setLgShow, 
+                changeShowProperty,
+                setUser,
+                setPassword,
+                onFocus,
+                onBlur,
+                handleChange,
+                user,
+                password,
+                login,
+                isLoggedIn,
+                setIsLoggedIn})=> {
 
   useEffect(()=> {
     
   })
-
 
 return(
 
@@ -61,10 +65,11 @@ return(
               onBlur= {(e)=>onBlur(e)}
             />
           </InputGroup>
-{/* 
-          <Button onClick={(e)=>login(e,user,password)} variant="success">Login</Button> */}
+
+
+          <Button onClick={(e)=>{login(e,user,password); setIsLoggedIn(true);}} variant="success">Login</Button>
         </Modal.Body>
-        {/* {user ? <Redirect to="/products"/> : null }  */} */}
+          {user && password && isLoggedIn ? <Redirect to="/products"/> : null }  
       </Modal>
       
 );
