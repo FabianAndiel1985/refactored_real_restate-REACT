@@ -69,8 +69,8 @@ return(
           </InputGroup>
 
 
-          <Button onClick={(e)=>{login(e,user,password).then((u) => {console.log(u);localStorage.setItem("user", u); history.push('/products');}).catch((error) => {
-      console.log("didnt work");
+          <Button onClick={(e)=>{login(e,user,password).then((u) => {localStorage.setItem("user", u)}).then(e => {history.push("/products")}).catch((error) => {
+      console.log(error);
     });}} variant="success">Login</Button>
         </Modal.Body>  
       </Modal>
