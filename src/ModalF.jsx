@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Modal,InputGroup,FormControl,Button} from 'react-bootstrap';
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const ModalF = ({lgShow,
@@ -14,7 +14,6 @@ const ModalF = ({lgShow,
                 user,
                 password,
                 login,
-                isLoggedIn
                })=> {
 
 const history = useHistory();
