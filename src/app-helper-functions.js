@@ -1,4 +1,4 @@
- import fire from './config/fire';
+import fire from './config/fire';
 
   export function login(e,user,password) {
         e.preventDefault();
