@@ -2,10 +2,9 @@ import fire from './config/fire';
 
   export function login(e,user,password) {
         e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(user, password).then((u) => {console.log(u);localStorage.setItem("user", u)}).catch((error) => {
-            console.log("didnt work");
-        });
+        return fire.auth().signInWithEmailAndPassword(user, password);
     }
+
 
  export function authListener() {
         fire.auth().onAuthStateChanged((user) => {

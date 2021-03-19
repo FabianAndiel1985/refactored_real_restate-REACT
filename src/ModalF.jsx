@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Modal,InputGroup,FormControl,Button} from 'react-bootstrap';
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 
 const ModalF = ({lgShow,
@@ -14,8 +14,10 @@ const ModalF = ({lgShow,
                 user,
                 password,
                 login,
-                isLoggedIn,
-                setIsLoggedIn})=> {
+                isLoggedIn
+               })=> {
+
+const history = useHistory();
 
   useEffect(()=> {
     
@@ -67,14 +69,16 @@ return(
           </InputGroup>
 
 
-          <Button onClick={(e)=>{login(e,user,password); setIsLoggedIn(true);}} variant="success">Login</Button>
-        </Modal.Body>
-          {user && password && isLoggedIn ? <Redirect to="/products"/> : null }  
+          <Button onClick={(e)=>{login(e,user,password).then((u) => {console.log(u);localStorage.setItem("user", u); history.push('/products');}).catch((error) => {
+      console.log("didnt work");
+    });}} variant="success">Login</Button>
+        </Modal.Body>  
       </Modal>
       
 );
 
 }
+
 
 
 export default ModalF;

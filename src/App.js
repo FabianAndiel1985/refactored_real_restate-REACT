@@ -8,11 +8,9 @@ import {
         onFocus,
         onBlur,
         handleChange,
-        login,
-        test
+        login
       } from './app-helper-functions';
 
-      import IndButton from './IndButton.jsx';
       import ModalF from './ModalF.jsx';
 
 // TODOS: 
@@ -66,14 +64,11 @@ return(
          setIsLoggedIn = {setIsLoggedIn}
          />
 
-      
-      <IndButton clicker={test}/>
 
   </Container>
 
 );
 
 }
-
 
 export default App;
