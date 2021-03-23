@@ -1,4 +1,4 @@
-import React, { Component, useState,useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import {addProduct} from '../../actions/actions';
 import {Table} from 'react-bootstrap';
@@ -7,24 +7,39 @@ import styles from './products.module.css';
 import axios from 'axios';
 import { Redirect, withRouter } from "react-router-dom";
 
+class Products extends React.Component {
+	
+  constructor(props){
+		super(props);
+    this.state = {
+            products: null
+        }
 
-const Products = ()=> {
+    this.addProduct = this.addProduct.bind(this);
+    }
 
-  const [products,setProducts] = useState(null);
+    componentDidMount() {
 
-  const dispatch = useDispatch();
+     axios.get('http://localhost:8080/realEstateBackend/index.php').then((response) => {
+             this.setState({
+                products: response.data
+            });
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+    }
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/realEstateBackend/index.php').then((response) => {
-                  setProducts(response.data);
-              })
-              .catch((error) => {
-                  console.log(error.message);
-              });
-  });
+    addProduct() {
+      console.log("Hallo");
+      // this.history.push("/login");
+    }
 
-
-      return (
+   
+   
+  render() {
+    
+    return (
     	<Container className="my-5">
         <Table>
           <thead>
@@ -36,16 +51,14 @@ const Products = ()=> {
             </tr>
           </thead>
           <tbody>
-          {products != null ? products.map(
+          {this.state.products != null ? this.state.products.map(
                  (item,index)=>{
                    return (
                    <tr key={item.id}>
                     <td className={styles.tableText}>{item.id}</td>
                     <td className={styles.tableText}>{item.name}</td>
                     <td className={styles.tableText}>{item.price}</td>
-                    <td> <button className={styles.tableText} onClick={(e) => {
-                      dispatch(addProduct(e,item));
-                    }}> add to cart</button> </td>
+                    <td> <button className={styles.tableText} onClick={(event)=>this.props.onClick(event)}> add to cart</button> </td>
                   </tr>
                   )           
                   }  
@@ -54,13 +67,23 @@ const Products = ()=> {
             
           </tbody>
         </Table>
-         {/* {localStorage.getItem("user") ? 
+         {localStorage.getItem("user") ? 
          <button onClick={this.addProduct()}> add Products</button>
          : null
-       } */}
+       }
     	</Container>);
-
-
+  }
 }
 
-export default Products;
+
+
+const mapDispatchToProps = {
+      onClick:addProduct
+   }
+
+const mapStateToProps = 
+null;
+
+let Products2 = connect(mapStateToProps,mapDispatchToProps)(Products);
+
+export default withRouter(Products2);
