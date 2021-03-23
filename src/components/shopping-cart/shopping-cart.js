@@ -1,26 +1,38 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {Table} from 'react-bootstrap';
-import {reduceProduct} from '../../actions/actions';
-import {Container} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Table } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { reduceProduct } from '../../actions/actions';
 import styles from './shopping-cart.module.css';
 
-class ShoppingCart extends React.Component {
 
-  render() {
+const ShoppingCart = () => {
 
-    function calculate(array) {
-       let totalPrice = 0;
-       for(let i=0;i<array.length;i++){
-         totalPrice += array[i].price;
-       }
-       return totalPrice.toFixed(2);
+  const dispatch = useDispatch();
+
+  const[productsInCart,setProductsInCart] = useState(undefined);
+
+  const products= useSelector(state => state);
+
+  useEffect(() => {
+    if(products) {
+        setProductsInCart(products);
     }
+    }, [products]); 
 
-    const totalAmount = this.props.products != null ? 
-      calculate(this.props.products)
+    const calculate = (array) => {
+      let totalPrice = 0;
+      for(let i=0;i<array.length;i++){
+        totalPrice += array[i].price;
+      }
+      return totalPrice.toFixed(2);
+   }
+
+
+    const totalAmount = productsInCart != null ? 
+      calculate(productsInCart)
      :null ;
-    
+
+  
     return (
     	<Container className="pt-5">
 
@@ -37,7 +49,7 @@ class ShoppingCart extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {this.props.products? this.props.products.map(
+        {productsInCart? productsInCart.map(
                (item,index)=>{
                  return (
                  <tr key={item.id}>
@@ -45,7 +57,7 @@ class ShoppingCart extends React.Component {
                   <td className={styles.tableText}>{item.name}</td>
                   <td className={styles.tableText}>{item.price}</td>
                   <td className={styles.tableText}>{item.amount}</td>
-                  <td className={styles.tableText}><button onClick={(event)=>this.props.onClick(event)}> Reduce amount</button></td>
+                  <td className={styles.tableText}><button onClick={(event)=>dispatch(reduceProduct(event))}> Reduce amount</button></td>
                 </tr>
                 )           
                 }  
@@ -57,21 +69,7 @@ class ShoppingCart extends React.Component {
       <p className={styles.tableHeading}> Your total is: {totalAmount}</p>
       </Container>
     	);
-  }
+
 }
 
-
-const mapStateToProps = (state)=> {
-	return{
-		products:state
-	}
-}
-
-const mapDispatchToProps = {
-      onClick:reduceProduct
-   }
-
-
-let ShoppingCart2 = connect(mapStateToProps,mapDispatchToProps)(ShoppingCart);
-
-export default ShoppingCart2;
+export default ShoppingCart;

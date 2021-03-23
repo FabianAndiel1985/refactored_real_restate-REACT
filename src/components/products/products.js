@@ -1,11 +1,9 @@
-import React, { Component, useState,useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
-import {addProduct} from '../../actions/actions';
-import {Table} from 'react-bootstrap';
-import {Container, Row, Col} from 'react-bootstrap';
-import styles from './products.module.css';
 import axios from 'axios';
-import { Redirect, withRouter } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Container, Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../actions/actions';
+import styles from './products.module.css';
 
 
 const Products = ()=> {
