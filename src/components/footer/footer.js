@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './footer.module.css';
 
-function Footer(props) {
+const Footer = (props) => {
   return (<footer> Created by {props.creator}</footer>)
 }
 

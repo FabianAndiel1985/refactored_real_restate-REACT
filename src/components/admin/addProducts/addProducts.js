@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Redirect, withRouter } from "react-router-dom";
 
-class AddProducts extends React.Component {
-	
+const AddProducts = ()=> {
+  
+
+
   constructor(props){
-		super(props);
-    this.state = {
-            products: null
-        }
-    }
-
-    componentDidMount() {
-    }
+		
+  const [products, setCount] = useState();
 
    
   render() {

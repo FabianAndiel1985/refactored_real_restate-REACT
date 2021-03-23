@@ -2,10 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import Pic from '../../../assets/images/welcomePic.jpg';
 import styles from './teamMemberDetail.module.css';
 
-function teamMemberDetail(props) {
+const teamMemberDetail = (props) => {
 	return(
 			<Card className={styles.card}>
 			  <Card.Img variant="top" src={require("../../../assets/images/"+props.image)} />

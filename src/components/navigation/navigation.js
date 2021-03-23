@@ -10,7 +10,7 @@ import styles from './navigation.module.css';
 import fire from '../../config/fire';
 
 
-function Navigation(props) {
+const Navigation = (props) => {
 	
 	function logout() {
 		fire.auth().signOut().then((u)=> {
